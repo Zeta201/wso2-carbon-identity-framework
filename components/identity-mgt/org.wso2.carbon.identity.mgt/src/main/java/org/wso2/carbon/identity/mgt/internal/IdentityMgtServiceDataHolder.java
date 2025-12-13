@@ -22,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.identity.claim.metadata.mgt.ClaimMetadataManagementService;
 import org.wso2.carbon.user.core.listener.UserOperationEventListener;
+import org.wso2.carbon.identity.organization.management.service.OrganizationManager;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -31,6 +32,8 @@ public class IdentityMgtServiceDataHolder {
     private static IdentityMgtServiceDataHolder instance = new IdentityMgtServiceDataHolder();
 
     private static Log log = LogFactory.getLog(IdentityMgtServiceDataHolder.class);
+
+    private OrganizationManager organizationManager;
 
     private boolean userSessionMappingEnabled;
 
@@ -110,5 +113,15 @@ public class IdentityMgtServiceDataHolder {
     public static void setClaimManagementService(ClaimMetadataManagementService claimManagementService) {
 
         IdentityMgtServiceDataHolder.claimManagementService = claimManagementService;
+    }
+
+    public void setOrganizationManager(OrganizationManager organizationManager) {
+
+        this.organizationManager = organizationManager;
+    }
+
+    public OrganizationManager getOrganizationManager() {
+
+        return organizationManager;
     }
 }
